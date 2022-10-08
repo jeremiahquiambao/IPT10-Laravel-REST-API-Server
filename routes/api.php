@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,21 +15,24 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post('product/add',[ProductsController::class, 'addProduct']);
 
-Route::get('products/{product_id}',[ProductsController::class, 'singleProduct']);
+Route::get('products', [ProductController::class, 'allProducts']);
 
-Route::get('products/{category}/category',[ProductsController::class, 'categoryProduct']);
+Route::post('products/add',[ProductController::class, 'addProduct']);
 
-Route::put('products/{product_id}/update',[ProductsController::class, 'updateProduct']);
+Route::get('products/{product_id}',[ProductController::class, 'singleProduct']);
 
-Route::delete('products/{product_id}/delete',[ProductsController::class, 'deleteProduct']);
+Route::get('products/{category}/category',[ProductController::class, 'categoryProduct']);
 
-Route::get('products/{title}/search',[ProductsController::class, 'searchProduct']);
+Route::put('products/{product_id}/update',[ProductController::class, 'updateProduct']);
 
-Route::get('products/category/categories',[ProductsController::class, 'allCategory']);
+Route::delete('products/{product_id}/delete',[ProductController::class, 'deleteProduct']);
 
-Route::get('products/category/{category_name}',[ProductsController::class, 'categoryProduct']);
+Route::get('products/{title}/search',[ProductController::class, 'searchProduct']);
+
+Route::get('products/category/categories',[ProductController::class, 'allCategory']);
+
+Route::get('products/category/{category_name}',[ProductController::class, 'categoryProduct']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

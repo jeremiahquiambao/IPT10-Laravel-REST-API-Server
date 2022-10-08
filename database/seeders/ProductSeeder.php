@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use App\Models\Product;
 
-class ProductsSeeder extends Seeder
+class ProductSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -24,7 +24,7 @@ class ProductsSeeder extends Seeder
             'currency'     => $faker->word(3), 
             'price'     => $faker->randomNumber,
             'brand'   => $faker->catchPhrase,
-            'category'=> $faker->randomElement(["apparel", "book", "electronic device"]),
+            'category'=> $faker->randomElement(["apparel", "book", "gadget"]),
             'image'   => $faker->imageUrl
         ]);
         }

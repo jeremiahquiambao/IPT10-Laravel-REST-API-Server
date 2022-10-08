@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 
 
-class ProductsController extends Controller
+class ProductController extends Controller
 {
         public function allProducts(){
                 $products = Product::all();
@@ -38,6 +38,7 @@ class ProductsController extends Controller
                         'category'=>'required',
                         'image'=>'required'
                 ]);
+                
                 $product= new Product;
                 $product->title = $request->title;
                 $product->description = $request->description;
