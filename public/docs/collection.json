@@ -1,0 +1,550 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost:8000"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "1d00a7fa-a9c3-4c29-b50f-a50b282c070c",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "api\/products",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"products\":[{\"id\":1,\"title\":\"Up-sized mission-critical project\",\"description\":\"Totam in aut sunt officiis sit provident atque molestias ea.\",\"currency\":\"maxime\",\"price\":515,\"brand\":\"Fully-configurable demand-driven policy\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ccbb?text=consequatur\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":2,\"title\":\"Cross-platform object-oriented functionalities\",\"description\":\"Aperiam voluptas maxime explicabo voluptatem voluptas rem aut.\",\"currency\":\"aut\",\"price\":8620,\"brand\":\"Progressive neutral middleware\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/003388?text=labore\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":3,\"title\":\"Cross-group transitional application\",\"description\":\"Neque porro ut dolorem numquam dolor ab non voluptatibus voluptas molestiae.\",\"currency\":\"quis\",\"price\":97,\"brand\":\"Monitored discrete project\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/003399?text=aspernatur\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":4,\"title\":\"Focused mobile hierarchy\",\"description\":\"Soluta rerum sunt sit ab iste molestias nesciunt impedit est.\",\"currency\":\"saepe\",\"price\":520065991,\"brand\":\"Visionary eco-centric matrix\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aa44?text=sint\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":5,\"title\":\"Implemented reciprocal securedline\",\"description\":\"Sed ullam minima quis autem laborum.\",\"currency\":\"qui\",\"price\":25313599,\"brand\":\"Versatile exuding benchmark\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ff66?text=aliquam\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":6,\"title\":\"Expanded motivating solution\",\"description\":\"Consequatur quasi et et rem ad tempore.\",\"currency\":\"incidunt\",\"price\":53,\"brand\":\"Polarised cohesive definition\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/006633?text=aut\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":7,\"title\":\"Reactive impactful knowledgebase\",\"description\":\"Unde maxime quas voluptatem ut consequatur corporis.\",\"currency\":\"possimus\",\"price\":86443,\"brand\":\"Synchronised 6thgeneration benchmark\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/001133?text=minima\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":8,\"title\":\"Configurable 4thgeneration hierarchy\",\"description\":\"Ab explicabo rerum sunt et amet vel reiciendis.\",\"currency\":\"cumque\",\"price\":890,\"brand\":\"Progressive executive emulation\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aa99?text=laudantium\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":9,\"title\":\"Integrated context-sensitive throughput\",\"description\":\"Ut mollitia dicta expedita voluptates dolor.\",\"currency\":\"sint\",\"price\":982409837,\"brand\":\"Persevering responsive systemengine\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/002277?text=consequuntur\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":10,\"title\":\"Integrated leadingedge emulation\",\"description\":\"Dolorem soluta error nobis est rem excepturi voluptatibus et id deserunt atque.\",\"currency\":\"ab\",\"price\":34,\"brand\":\"Optimized even-keeled functionalities\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ee11?text=nihil\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":11,\"title\":\"Secured holistic methodology\",\"description\":\"Labore iure in error et deleniti sunt.\",\"currency\":\"quidem\",\"price\":5327133,\"brand\":\"Secured national migration\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ff77?text=rem\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":12,\"title\":\"Multi-lateral analyzing contingency\",\"description\":\"Maxime velit placeat dignissimos qui suscipit provident eaque odio.\",\"currency\":\"id\",\"price\":20077120,\"brand\":\"Digitized exuding budgetarymanagement\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ff00?text=sed\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":13,\"title\":\"Focused regional toolset\",\"description\":\"Ea nulla quae recusandae iusto molestias rerum consequatur quo.\",\"currency\":\"accusamus\",\"price\":55,\"brand\":\"Horizontal exuding interface\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aa99?text=totam\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":14,\"title\":\"Self-enabling heuristic portal\",\"description\":\"Dolores commodi quia aut eligendi quia rerum cumque.\",\"currency\":\"ducimus\",\"price\":43447029,\"brand\":\"Cross-group human-resource solution\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/007777?text=porro\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":15,\"title\":\"Integrated asynchronous product\",\"description\":\"At aliquid aut totam quis asperiores laborum in temporibus voluptas eos.\",\"currency\":\"id\",\"price\":474690402,\"brand\":\"Down-sized foreground localareanetwork\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00dd00?text=cum\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":16,\"title\":\"User-friendly zeroadministration emulation\",\"description\":\"Molestiae debitis placeat ad quia autem non quam.\",\"currency\":\"excepturi\",\"price\":264443924,\"brand\":\"Open-architected systematic infrastructure\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0088ee?text=iusto\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":17,\"title\":\"Ergonomic leadingedge artificialintelligence\",\"description\":\"Animi aut aliquam unde itaque sint ut.\",\"currency\":\"necessitatibus\",\"price\":87591,\"brand\":\"Realigned 24\\\/7 localareanetwork\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0022ee?text=facere\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":18,\"title\":\"Persevering fault-tolerant throughput\",\"description\":\"Aut culpa reiciendis iusto corrupti maiores.\",\"currency\":\"et\",\"price\":9036769,\"brand\":\"Profit-focused reciprocal extranet\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0022cc?text=et\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":19,\"title\":\"Open-architected holistic infrastructure\",\"description\":\"Autem eveniet optio vel sed.\",\"currency\":\"enim\",\"price\":3713529,\"brand\":\"Sharable mission-critical complexity\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ffdd?text=est\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":20,\"title\":\"Progressive web-enabled infrastructure\",\"description\":\"Odit velit optio nulla fugiat error provident magni est.\",\"currency\":\"fuga\",\"price\":5,\"brand\":\"Digitized real-time GraphicalUserInterface\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00cc44?text=ut\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":21,\"title\":\"Virtual systematic securedline\",\"description\":\"Magni voluptatem tempora ullam ipsam officia voluptatem quisquam aperiam est unde.\",\"currency\":\"vero\",\"price\":962803,\"brand\":\"Vision-oriented 6thgeneration leverage\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0055cc?text=molestiae\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":22,\"title\":\"Integrated global monitoring\",\"description\":\"Eligendi ut et atque harum et.\",\"currency\":\"ut\",\"price\":8905,\"brand\":\"Distributed mission-critical implementation\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/000099?text=sed\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":23,\"title\":\"Cross-platform impactful GraphicInterface\",\"description\":\"Et consectetur beatae reiciendis quam accusantium omnis beatae dolor sunt tempore.\",\"currency\":\"tempora\",\"price\":88284,\"brand\":\"De-engineered bottom-line hub\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/006644?text=fugit\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":24,\"title\":\"Organic intangible attitude\",\"description\":\"Aut totam ipsa dolor laborum accusamus ad non ipsa.\",\"currency\":\"veniam\",\"price\":46110,\"brand\":\"Multi-lateral local hardware\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0044dd?text=laborum\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":25,\"title\":\"Centralized dynamic installation\",\"description\":\"Facere laboriosam voluptatem dolores voluptate repellat veritatis porro provident magni repudiandae.\",\"currency\":\"aspernatur\",\"price\":84525079,\"brand\":\"User-friendly foreground securedline\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00cc00?text=consequatur\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":26,\"title\":\"Down-sized leadingedge focusgroup\",\"description\":\"Rerum minus qui facere sed atque at ea sit.\",\"currency\":\"voluptatum\",\"price\":15,\"brand\":\"Seamless solution-oriented implementation\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00bb22?text=rerum\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":27,\"title\":\"Persistent national openarchitecture\",\"description\":\"Error nihil accusantium dolore fugiat et.\",\"currency\":\"quasi\",\"price\":6094972,\"brand\":\"Diverse leadingedge data-warehouse\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0055ee?text=adipisci\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":28,\"title\":\"Cross-group attitude-oriented installation\",\"description\":\"In consectetur corporis quas ut quibusdam magnam.\",\"currency\":\"architecto\",\"price\":8,\"brand\":\"Total user-facing flexibility\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0044aa?text=perferendis\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":29,\"title\":\"Upgradable zerodefect capacity\",\"description\":\"Explicabo et nihil reprehenderit et sapiente commodi ea dolorem reprehenderit.\",\"currency\":\"cum\",\"price\":65,\"brand\":\"Assimilated attitude-oriented moderator\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/007788?text=in\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":30,\"title\":\"Programmable bottom-line knowledgeuser\",\"description\":\"Architecto cum alias labore dignissimos itaque autem aut sed natus perferendis.\",\"currency\":\"rem\",\"price\":8,\"brand\":\"Fundamental systematic benchmark\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ddff?text=animi\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":31,\"title\":\"Balanced analyzing collaboration\",\"description\":\"Et debitis quos tempora voluptas.\",\"currency\":\"est\",\"price\":155824,\"brand\":\"Switchable actuating archive\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0011ee?text=error\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":32,\"title\":\"Streamlined mobile methodology\",\"description\":\"Voluptas veritatis cumque in sapiente a sed voluptatibus dolorem.\",\"currency\":\"quos\",\"price\":3947993,\"brand\":\"Multi-tiered coherent task-force\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/008877?text=commodi\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":33,\"title\":\"Optional bi-directional software\",\"description\":\"Dolorum ipsam blanditiis facere accusantium incidunt corporis veniam laborum earum.\",\"currency\":\"expedita\",\"price\":269724,\"brand\":\"User-centric grid-enabled concept\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0011aa?text=modi\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":34,\"title\":\"Integrated empowering workforce\",\"description\":\"Sit pariatur deserunt voluptas omnis quia facere dignissimos sunt est.\",\"currency\":\"consequatur\",\"price\":29990,\"brand\":\"Proactive global intranet\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00bb99?text=sunt\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":35,\"title\":\"Triple-buffered 24\\\/7 monitoring\",\"description\":\"Aut consequatur iusto nisi qui qui corrupti enim ea et molestiae rerum.\",\"currency\":\"et\",\"price\":833759,\"brand\":\"Managed attitude-oriented approach\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/002200?text=et\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":36,\"title\":\"Versatile bi-directional project\",\"description\":\"Et et laboriosam quia et velit optio fugiat dolore.\",\"currency\":\"quod\",\"price\":6223,\"brand\":\"Cross-group scalable frame\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00bb22?text=et\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":37,\"title\":\"Mandatory bandwidth-monitored application\",\"description\":\"Aperiam qui hic tenetur minima incidunt laboriosam dicta nihil quos.\",\"currency\":\"dolor\",\"price\":6316,\"brand\":\"Ameliorated composite frame\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/007700?text=voluptatem\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":38,\"title\":\"Team-oriented actuating initiative\",\"description\":\"Molestiae in et recusandae non et occaecati.\",\"currency\":\"corrupti\",\"price\":81,\"brand\":\"Balanced holistic toolset\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aacc?text=corporis\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":39,\"title\":\"Seamless homogeneous productivity\",\"description\":\"Fugiat velit quo amet alias nemo qui optio possimus et a earum.\",\"currency\":\"saepe\",\"price\":1453,\"brand\":\"Expanded non-volatile alliance\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/009988?text=maiores\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":40,\"title\":\"Optimized content-based collaboration\",\"description\":\"Porro aut voluptate illum ad qui ad beatae quis molestias.\",\"currency\":\"autem\",\"price\":6,\"brand\":\"Centralized leadingedge ability\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/009944?text=qui\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":41,\"title\":\"Synergistic impactful protocol\",\"description\":\"Velit veritatis consequatur recusandae omnis eos.\",\"currency\":\"libero\",\"price\":951,\"brand\":\"Integrated exuding application\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ffff?text=sunt\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":42,\"title\":\"Digitized 6thgeneration throughput\",\"description\":\"Vero tenetur cumque sint voluptates hic ipsum molestiae perspiciatis sunt hic.\",\"currency\":\"dolore\",\"price\":5,\"brand\":\"Implemented zerotolerance framework\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0000ee?text=repellat\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":43,\"title\":\"Business-focused composite hardware\",\"description\":\"Recusandae aperiam ut est inventore nulla sunt.\",\"currency\":\"et\",\"price\":38,\"brand\":\"Monitored system-worthy database\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ff99?text=sed\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":44,\"title\":\"Versatile bi-directional systemengine\",\"description\":\"Illo tempore at quibusdam doloremque ducimus hic eaque ex corporis.\",\"currency\":\"sit\",\"price\":25608,\"brand\":\"Re-engineered maximized analyzer\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0044aa?text=nihil\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":45,\"title\":\"Adaptive intangible initiative\",\"description\":\"Ut dolor quis doloremque quo quas quae.\",\"currency\":\"voluptatem\",\"price\":9,\"brand\":\"Balanced mobile knowledgebase\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00bb00?text=at\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":46,\"title\":\"Down-sized discrete openarchitecture\",\"description\":\"Consequuntur aperiam vel sit sed assumenda nobis voluptatum omnis numquam dolores.\",\"currency\":\"praesentium\",\"price\":5394446,\"brand\":\"Organized dynamic frame\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00cc66?text=impedit\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":47,\"title\":\"Reduced coherent synergy\",\"description\":\"Cum in exercitationem voluptas nisi sit sunt quos omnis quis ratione.\",\"currency\":\"ex\",\"price\":210574,\"brand\":\"Automated high-level encoding\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00cc77?text=asperiores\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":48,\"title\":\"Multi-layered 6thgeneration securedline\",\"description\":\"Eaque excepturi dolor distinctio mollitia rerum incidunt tempore ducimus.\",\"currency\":\"deserunt\",\"price\":126941283,\"brand\":\"Business-focused web-enabled collaboration\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0000aa?text=quia\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":49,\"title\":\"Integrated 4thgeneration capacity\",\"description\":\"Beatae cum et quisquam quaerat ex atque quas ea unde maxime.\",\"currency\":\"neque\",\"price\":9,\"brand\":\"Persistent secondary workforce\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aa11?text=pariatur\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":50,\"title\":\"Proactive background installation\",\"description\":\"Doloremque aut dolor dolorum eum sunt dolorem provident velit.\",\"currency\":\"maiores\",\"price\":831,\"brand\":\"Open-architected encompassing paradigm\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00cc55?text=distinctio\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":51,\"title\":\"Advanced regional attitude\",\"description\":\"Ut porro ut eveniet explicabo soluta.\",\"currency\":\"qui\",\"price\":595165193,\"brand\":\"Self-enabling actuating definition\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/001199?text=officiis\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":52,\"title\":\"Compatible zeroadministration service-desk\",\"description\":\"Quia placeat a ratione et error aut.\",\"currency\":\"quo\",\"price\":154245653,\"brand\":\"Customizable nextgeneration initiative\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0044bb?text=sed\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":53,\"title\":\"Multi-layered context-sensitive project\",\"description\":\"Libero eaque tempora accusamus animi ipsum qui quas.\",\"currency\":\"ipsa\",\"price\":1191617,\"brand\":\"Vision-oriented homogeneous orchestration\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/006633?text=corporis\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":54,\"title\":\"Adaptive eco-centric model\",\"description\":\"Sit omnis aut assumenda et dolorem voluptatem.\",\"currency\":\"accusamus\",\"price\":83,\"brand\":\"Persevering 24hour website\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ee22?text=sit\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":55,\"title\":\"Stand-alone incremental synergy\",\"description\":\"Molestiae quasi consequatur tenetur ducimus odit quo animi accusantium molestias voluptatem.\",\"currency\":\"voluptates\",\"price\":157200044,\"brand\":\"Centralized uniform pricingstructure\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/007722?text=quo\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":56,\"title\":\"Digitized secondary budgetarymanagement\",\"description\":\"Voluptate qui a omnis architecto rem ut modi.\",\"currency\":\"debitis\",\"price\":33,\"brand\":\"Expanded leadingedge localareanetwork\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00dd66?text=et\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":57,\"title\":\"Devolved empowering model\",\"description\":\"Hic eius ut repudiandae praesentium et et.\",\"currency\":\"velit\",\"price\":9985661,\"brand\":\"Reverse-engineered multimedia policy\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aaaa?text=aut\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":58,\"title\":\"Grass-roots methodical GraphicalUserInterface\",\"description\":\"Quo dolore enim est et.\",\"currency\":\"voluptas\",\"price\":7,\"brand\":\"De-engineered even-keeled core\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/008844?text=repellendus\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":59,\"title\":\"Persevering mobile challenge\",\"description\":\"Officiis consequuntur esse fugit in dolor nemo aliquid.\",\"currency\":\"nihil\",\"price\":96,\"brand\":\"Secured client-server data-warehouse\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/004488?text=quos\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":60,\"title\":\"Future-proofed interactive firmware\",\"description\":\"Id aliquam corrupti eum sed perspiciatis assumenda ut quibusdam tempore debitis.\",\"currency\":\"neque\",\"price\":427,\"brand\":\"Synergized human-resource interface\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ffbb?text=deleniti\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":61,\"title\":\"Nitro 5\",\"description\":\"the best gaming laptop\",\"currency\":\"usd\",\"price\":1000,\"brand\":\"Acer\",\"category\":\"Laptop\",\"image\":\"https:\\\/\\\/d1rlzxa98cyc61.cloudfront.net\\\/catalog\\\/product\\\/cache\\\/1801c418208f9607a371e61f8d9184d9\\\/1\\\/8\\\/182730_2022.jpg\",\"created_at\":\"2022-10-08T07:16:44.000000Z\",\"updated_at\":\"2022-10-08T07:16:44.000000Z\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/products\/add",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/add",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products\/add"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"ab\",\"description\":\"aut\",\"currency\":\"laudantium\",\"price\":\"delectus\",\"brand\":\"asperiores\",\"category\":\"distinctio\",\"image\":\"est\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/products\/{product_id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/:product_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products\/:product_id",
+                            "variable": [
+                                {
+                                    "id": "product_id",
+                                    "key": "product_id",
+                                    "value": "1",
+                                    "description": "The ID of the product."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"products\":{\"id\":1,\"title\":\"Up-sized mission-critical project\",\"description\":\"Totam in aut sunt officiis sit provident atque molestias ea.\",\"currency\":\"maxime\",\"price\":515,\"brand\":\"Fully-configurable demand-driven policy\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ccbb?text=consequatur\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/products\/{category}\/category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/:category\/category",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products\/:category\/category",
+                            "variable": [
+                                {
+                                    "id": "category",
+                                    "key": "category",
+                                    "value": "1",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "57"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/products\/{product_id}\/update",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/:product_id\/update",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products\/:product_id\/update",
+                            "variable": [
+                                {
+                                    "id": "product_id",
+                                    "key": "product_id",
+                                    "value": "1",
+                                    "description": "The ID of the product."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"similique\",\"description\":\"amet\",\"currency\":\"rem\",\"price\":\"qui\",\"brand\":\"nisi\",\"category\":\"architecto\",\"image\":\"ut\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/products\/{product_id}\/delete",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/:product_id\/delete",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products\/:product_id\/delete",
+                            "variable": [
+                                {
+                                    "id": "product_id",
+                                    "key": "product_id",
+                                    "value": "1",
+                                    "description": "The ID of the product."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/products\/{title}\/search",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/:title\/search",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products\/:title\/search",
+                            "variable": [
+                                {
+                                    "id": "title",
+                                    "key": "title",
+                                    "value": "1",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "56"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/products\/category\/categories",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/category\/categories",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products\/category\/categories"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "55"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"products\":[{\"id\":1,\"title\":\"Up-sized mission-critical project\",\"description\":\"Totam in aut sunt officiis sit provident atque molestias ea.\",\"currency\":\"maxime\",\"price\":515,\"brand\":\"Fully-configurable demand-driven policy\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ccbb?text=consequatur\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":2,\"title\":\"Cross-platform object-oriented functionalities\",\"description\":\"Aperiam voluptas maxime explicabo voluptatem voluptas rem aut.\",\"currency\":\"aut\",\"price\":8620,\"brand\":\"Progressive neutral middleware\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/003388?text=labore\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":3,\"title\":\"Cross-group transitional application\",\"description\":\"Neque porro ut dolorem numquam dolor ab non voluptatibus voluptas molestiae.\",\"currency\":\"quis\",\"price\":97,\"brand\":\"Monitored discrete project\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/003399?text=aspernatur\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":4,\"title\":\"Focused mobile hierarchy\",\"description\":\"Soluta rerum sunt sit ab iste molestias nesciunt impedit est.\",\"currency\":\"saepe\",\"price\":520065991,\"brand\":\"Visionary eco-centric matrix\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aa44?text=sint\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":5,\"title\":\"Implemented reciprocal securedline\",\"description\":\"Sed ullam minima quis autem laborum.\",\"currency\":\"qui\",\"price\":25313599,\"brand\":\"Versatile exuding benchmark\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ff66?text=aliquam\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":6,\"title\":\"Expanded motivating solution\",\"description\":\"Consequatur quasi et et rem ad tempore.\",\"currency\":\"incidunt\",\"price\":53,\"brand\":\"Polarised cohesive definition\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/006633?text=aut\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":7,\"title\":\"Reactive impactful knowledgebase\",\"description\":\"Unde maxime quas voluptatem ut consequatur corporis.\",\"currency\":\"possimus\",\"price\":86443,\"brand\":\"Synchronised 6thgeneration benchmark\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/001133?text=minima\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":8,\"title\":\"Configurable 4thgeneration hierarchy\",\"description\":\"Ab explicabo rerum sunt et amet vel reiciendis.\",\"currency\":\"cumque\",\"price\":890,\"brand\":\"Progressive executive emulation\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aa99?text=laudantium\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":9,\"title\":\"Integrated context-sensitive throughput\",\"description\":\"Ut mollitia dicta expedita voluptates dolor.\",\"currency\":\"sint\",\"price\":982409837,\"brand\":\"Persevering responsive systemengine\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/002277?text=consequuntur\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":10,\"title\":\"Integrated leadingedge emulation\",\"description\":\"Dolorem soluta error nobis est rem excepturi voluptatibus et id deserunt atque.\",\"currency\":\"ab\",\"price\":34,\"brand\":\"Optimized even-keeled functionalities\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ee11?text=nihil\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":11,\"title\":\"Secured holistic methodology\",\"description\":\"Labore iure in error et deleniti sunt.\",\"currency\":\"quidem\",\"price\":5327133,\"brand\":\"Secured national migration\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ff77?text=rem\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":12,\"title\":\"Multi-lateral analyzing contingency\",\"description\":\"Maxime velit placeat dignissimos qui suscipit provident eaque odio.\",\"currency\":\"id\",\"price\":20077120,\"brand\":\"Digitized exuding budgetarymanagement\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ff00?text=sed\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":13,\"title\":\"Focused regional toolset\",\"description\":\"Ea nulla quae recusandae iusto molestias rerum consequatur quo.\",\"currency\":\"accusamus\",\"price\":55,\"brand\":\"Horizontal exuding interface\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aa99?text=totam\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":14,\"title\":\"Self-enabling heuristic portal\",\"description\":\"Dolores commodi quia aut eligendi quia rerum cumque.\",\"currency\":\"ducimus\",\"price\":43447029,\"brand\":\"Cross-group human-resource solution\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/007777?text=porro\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":15,\"title\":\"Integrated asynchronous product\",\"description\":\"At aliquid aut totam quis asperiores laborum in temporibus voluptas eos.\",\"currency\":\"id\",\"price\":474690402,\"brand\":\"Down-sized foreground localareanetwork\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00dd00?text=cum\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":16,\"title\":\"User-friendly zeroadministration emulation\",\"description\":\"Molestiae debitis placeat ad quia autem non quam.\",\"currency\":\"excepturi\",\"price\":264443924,\"brand\":\"Open-architected systematic infrastructure\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0088ee?text=iusto\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":17,\"title\":\"Ergonomic leadingedge artificialintelligence\",\"description\":\"Animi aut aliquam unde itaque sint ut.\",\"currency\":\"necessitatibus\",\"price\":87591,\"brand\":\"Realigned 24\\\/7 localareanetwork\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0022ee?text=facere\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":18,\"title\":\"Persevering fault-tolerant throughput\",\"description\":\"Aut culpa reiciendis iusto corrupti maiores.\",\"currency\":\"et\",\"price\":9036769,\"brand\":\"Profit-focused reciprocal extranet\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0022cc?text=et\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":19,\"title\":\"Open-architected holistic infrastructure\",\"description\":\"Autem eveniet optio vel sed.\",\"currency\":\"enim\",\"price\":3713529,\"brand\":\"Sharable mission-critical complexity\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ffdd?text=est\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":20,\"title\":\"Progressive web-enabled infrastructure\",\"description\":\"Odit velit optio nulla fugiat error provident magni est.\",\"currency\":\"fuga\",\"price\":5,\"brand\":\"Digitized real-time GraphicalUserInterface\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00cc44?text=ut\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":21,\"title\":\"Virtual systematic securedline\",\"description\":\"Magni voluptatem tempora ullam ipsam officia voluptatem quisquam aperiam est unde.\",\"currency\":\"vero\",\"price\":962803,\"brand\":\"Vision-oriented 6thgeneration leverage\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0055cc?text=molestiae\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":22,\"title\":\"Integrated global monitoring\",\"description\":\"Eligendi ut et atque harum et.\",\"currency\":\"ut\",\"price\":8905,\"brand\":\"Distributed mission-critical implementation\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/000099?text=sed\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":23,\"title\":\"Cross-platform impactful GraphicInterface\",\"description\":\"Et consectetur beatae reiciendis quam accusantium omnis beatae dolor sunt tempore.\",\"currency\":\"tempora\",\"price\":88284,\"brand\":\"De-engineered bottom-line hub\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/006644?text=fugit\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":24,\"title\":\"Organic intangible attitude\",\"description\":\"Aut totam ipsa dolor laborum accusamus ad non ipsa.\",\"currency\":\"veniam\",\"price\":46110,\"brand\":\"Multi-lateral local hardware\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0044dd?text=laborum\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":25,\"title\":\"Centralized dynamic installation\",\"description\":\"Facere laboriosam voluptatem dolores voluptate repellat veritatis porro provident magni repudiandae.\",\"currency\":\"aspernatur\",\"price\":84525079,\"brand\":\"User-friendly foreground securedline\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00cc00?text=consequatur\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":26,\"title\":\"Down-sized leadingedge focusgroup\",\"description\":\"Rerum minus qui facere sed atque at ea sit.\",\"currency\":\"voluptatum\",\"price\":15,\"brand\":\"Seamless solution-oriented implementation\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00bb22?text=rerum\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":27,\"title\":\"Persistent national openarchitecture\",\"description\":\"Error nihil accusantium dolore fugiat et.\",\"currency\":\"quasi\",\"price\":6094972,\"brand\":\"Diverse leadingedge data-warehouse\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0055ee?text=adipisci\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":28,\"title\":\"Cross-group attitude-oriented installation\",\"description\":\"In consectetur corporis quas ut quibusdam magnam.\",\"currency\":\"architecto\",\"price\":8,\"brand\":\"Total user-facing flexibility\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0044aa?text=perferendis\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":29,\"title\":\"Upgradable zerodefect capacity\",\"description\":\"Explicabo et nihil reprehenderit et sapiente commodi ea dolorem reprehenderit.\",\"currency\":\"cum\",\"price\":65,\"brand\":\"Assimilated attitude-oriented moderator\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/007788?text=in\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":30,\"title\":\"Programmable bottom-line knowledgeuser\",\"description\":\"Architecto cum alias labore dignissimos itaque autem aut sed natus perferendis.\",\"currency\":\"rem\",\"price\":8,\"brand\":\"Fundamental systematic benchmark\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ddff?text=animi\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":31,\"title\":\"Balanced analyzing collaboration\",\"description\":\"Et debitis quos tempora voluptas.\",\"currency\":\"est\",\"price\":155824,\"brand\":\"Switchable actuating archive\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0011ee?text=error\",\"created_at\":\"2022-10-08T06:34:00.000000Z\",\"updated_at\":\"2022-10-08T06:34:00.000000Z\"},{\"id\":32,\"title\":\"Streamlined mobile methodology\",\"description\":\"Voluptas veritatis cumque in sapiente a sed voluptatibus dolorem.\",\"currency\":\"quos\",\"price\":3947993,\"brand\":\"Multi-tiered coherent task-force\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/008877?text=commodi\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":33,\"title\":\"Optional bi-directional software\",\"description\":\"Dolorum ipsam blanditiis facere accusantium incidunt corporis veniam laborum earum.\",\"currency\":\"expedita\",\"price\":269724,\"brand\":\"User-centric grid-enabled concept\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0011aa?text=modi\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":34,\"title\":\"Integrated empowering workforce\",\"description\":\"Sit pariatur deserunt voluptas omnis quia facere dignissimos sunt est.\",\"currency\":\"consequatur\",\"price\":29990,\"brand\":\"Proactive global intranet\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00bb99?text=sunt\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":35,\"title\":\"Triple-buffered 24\\\/7 monitoring\",\"description\":\"Aut consequatur iusto nisi qui qui corrupti enim ea et molestiae rerum.\",\"currency\":\"et\",\"price\":833759,\"brand\":\"Managed attitude-oriented approach\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/002200?text=et\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":36,\"title\":\"Versatile bi-directional project\",\"description\":\"Et et laboriosam quia et velit optio fugiat dolore.\",\"currency\":\"quod\",\"price\":6223,\"brand\":\"Cross-group scalable frame\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00bb22?text=et\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":37,\"title\":\"Mandatory bandwidth-monitored application\",\"description\":\"Aperiam qui hic tenetur minima incidunt laboriosam dicta nihil quos.\",\"currency\":\"dolor\",\"price\":6316,\"brand\":\"Ameliorated composite frame\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/007700?text=voluptatem\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":38,\"title\":\"Team-oriented actuating initiative\",\"description\":\"Molestiae in et recusandae non et occaecati.\",\"currency\":\"corrupti\",\"price\":81,\"brand\":\"Balanced holistic toolset\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aacc?text=corporis\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":39,\"title\":\"Seamless homogeneous productivity\",\"description\":\"Fugiat velit quo amet alias nemo qui optio possimus et a earum.\",\"currency\":\"saepe\",\"price\":1453,\"brand\":\"Expanded non-volatile alliance\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/009988?text=maiores\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":40,\"title\":\"Optimized content-based collaboration\",\"description\":\"Porro aut voluptate illum ad qui ad beatae quis molestias.\",\"currency\":\"autem\",\"price\":6,\"brand\":\"Centralized leadingedge ability\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/009944?text=qui\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":41,\"title\":\"Synergistic impactful protocol\",\"description\":\"Velit veritatis consequatur recusandae omnis eos.\",\"currency\":\"libero\",\"price\":951,\"brand\":\"Integrated exuding application\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ffff?text=sunt\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":42,\"title\":\"Digitized 6thgeneration throughput\",\"description\":\"Vero tenetur cumque sint voluptates hic ipsum molestiae perspiciatis sunt hic.\",\"currency\":\"dolore\",\"price\":5,\"brand\":\"Implemented zerotolerance framework\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0000ee?text=repellat\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":43,\"title\":\"Business-focused composite hardware\",\"description\":\"Recusandae aperiam ut est inventore nulla sunt.\",\"currency\":\"et\",\"price\":38,\"brand\":\"Monitored system-worthy database\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ff99?text=sed\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":44,\"title\":\"Versatile bi-directional systemengine\",\"description\":\"Illo tempore at quibusdam doloremque ducimus hic eaque ex corporis.\",\"currency\":\"sit\",\"price\":25608,\"brand\":\"Re-engineered maximized analyzer\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0044aa?text=nihil\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":45,\"title\":\"Adaptive intangible initiative\",\"description\":\"Ut dolor quis doloremque quo quas quae.\",\"currency\":\"voluptatem\",\"price\":9,\"brand\":\"Balanced mobile knowledgebase\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00bb00?text=at\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":46,\"title\":\"Down-sized discrete openarchitecture\",\"description\":\"Consequuntur aperiam vel sit sed assumenda nobis voluptatum omnis numquam dolores.\",\"currency\":\"praesentium\",\"price\":5394446,\"brand\":\"Organized dynamic frame\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00cc66?text=impedit\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":47,\"title\":\"Reduced coherent synergy\",\"description\":\"Cum in exercitationem voluptas nisi sit sunt quos omnis quis ratione.\",\"currency\":\"ex\",\"price\":210574,\"brand\":\"Automated high-level encoding\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00cc77?text=asperiores\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":48,\"title\":\"Multi-layered 6thgeneration securedline\",\"description\":\"Eaque excepturi dolor distinctio mollitia rerum incidunt tempore ducimus.\",\"currency\":\"deserunt\",\"price\":126941283,\"brand\":\"Business-focused web-enabled collaboration\",\"category\":\"gadget\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0000aa?text=quia\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":49,\"title\":\"Integrated 4thgeneration capacity\",\"description\":\"Beatae cum et quisquam quaerat ex atque quas ea unde maxime.\",\"currency\":\"neque\",\"price\":9,\"brand\":\"Persistent secondary workforce\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aa11?text=pariatur\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":50,\"title\":\"Proactive background installation\",\"description\":\"Doloremque aut dolor dolorum eum sunt dolorem provident velit.\",\"currency\":\"maiores\",\"price\":831,\"brand\":\"Open-architected encompassing paradigm\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00cc55?text=distinctio\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":51,\"title\":\"Advanced regional attitude\",\"description\":\"Ut porro ut eveniet explicabo soluta.\",\"currency\":\"qui\",\"price\":595165193,\"brand\":\"Self-enabling actuating definition\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/001199?text=officiis\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":52,\"title\":\"Compatible zeroadministration service-desk\",\"description\":\"Quia placeat a ratione et error aut.\",\"currency\":\"quo\",\"price\":154245653,\"brand\":\"Customizable nextgeneration initiative\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0044bb?text=sed\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":53,\"title\":\"Multi-layered context-sensitive project\",\"description\":\"Libero eaque tempora accusamus animi ipsum qui quas.\",\"currency\":\"ipsa\",\"price\":1191617,\"brand\":\"Vision-oriented homogeneous orchestration\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/006633?text=corporis\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":54,\"title\":\"Adaptive eco-centric model\",\"description\":\"Sit omnis aut assumenda et dolorem voluptatem.\",\"currency\":\"accusamus\",\"price\":83,\"brand\":\"Persevering 24hour website\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ee22?text=sit\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":55,\"title\":\"Stand-alone incremental synergy\",\"description\":\"Molestiae quasi consequatur tenetur ducimus odit quo animi accusantium molestias voluptatem.\",\"currency\":\"voluptates\",\"price\":157200044,\"brand\":\"Centralized uniform pricingstructure\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/007722?text=quo\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":56,\"title\":\"Digitized secondary budgetarymanagement\",\"description\":\"Voluptate qui a omnis architecto rem ut modi.\",\"currency\":\"debitis\",\"price\":33,\"brand\":\"Expanded leadingedge localareanetwork\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00dd66?text=et\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":57,\"title\":\"Devolved empowering model\",\"description\":\"Hic eius ut repudiandae praesentium et et.\",\"currency\":\"velit\",\"price\":9985661,\"brand\":\"Reverse-engineered multimedia policy\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aaaa?text=aut\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":58,\"title\":\"Grass-roots methodical GraphicalUserInterface\",\"description\":\"Quo dolore enim est et.\",\"currency\":\"voluptas\",\"price\":7,\"brand\":\"De-engineered even-keeled core\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/008844?text=repellendus\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":59,\"title\":\"Persevering mobile challenge\",\"description\":\"Officiis consequuntur esse fugit in dolor nemo aliquid.\",\"currency\":\"nihil\",\"price\":96,\"brand\":\"Secured client-server data-warehouse\",\"category\":\"book\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/004488?text=quos\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":60,\"title\":\"Future-proofed interactive firmware\",\"description\":\"Id aliquam corrupti eum sed perspiciatis assumenda ut quibusdam tempore debitis.\",\"currency\":\"neque\",\"price\":427,\"brand\":\"Synergized human-resource interface\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ffbb?text=deleniti\",\"created_at\":\"2022-10-08T06:34:01.000000Z\",\"updated_at\":\"2022-10-08T06:34:01.000000Z\"},{\"id\":61,\"title\":\"Nitro 5\",\"description\":\"the best gaming laptop\",\"currency\":\"usd\",\"price\":1000,\"brand\":\"Acer\",\"category\":\"Laptop\",\"image\":\"https:\\\/\\\/d1rlzxa98cyc61.cloudfront.net\\\/catalog\\\/product\\\/cache\\\/1801c418208f9607a371e61f8d9184d9\\\/1\\\/8\\\/182730_2022.jpg\",\"created_at\":\"2022-10-08T07:16:44.000000Z\",\"updated_at\":\"2022-10-08T07:16:44.000000Z\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/products\/category\/{category_name}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/category\/:category_name",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products\/category\/:category_name",
+                            "variable": [
+                                {
+                                    "id": "category_name",
+                                    "key": "category_name",
+                                    "value": "eligendi",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "54"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

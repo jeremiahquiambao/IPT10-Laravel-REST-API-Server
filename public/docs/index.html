@@ -1,0 +1,2821 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Laravel Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var baseUrl = "http://localhost:8000";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-4.0.0.js"></script>
+
+    <script src="../docs/js/theme-default-4.0.0.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                    <ul id="tocify-header-introduction" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="introduction">
+                    <a href="#introduction">Introduction</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-authenticating-requests" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authenticating-requests">
+                    <a href="#authenticating-requests">Authenticating requests</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-endpoints" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-products">
+                                <a href="#endpoints-GETapi-products">GET api/products</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-products-add">
+                                <a href="#endpoints-POSTapi-products-add">POST api/products/add</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-products--product_id-">
+                                <a href="#endpoints-GETapi-products--product_id-">GET api/products/{product_id}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-products--category--category">
+                                <a href="#endpoints-GETapi-products--category--category">GET api/products/{category}/category</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-products--product_id--update">
+                                <a href="#endpoints-PUTapi-products--product_id--update">PUT api/products/{product_id}/update</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-products--product_id--delete">
+                                <a href="#endpoints-DELETEapi-products--product_id--delete">DELETE api/products/{product_id}/delete</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-products--title--search">
+                                <a href="#endpoints-GETapi-products--title--search">GET api/products/{title}/search</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-products-category-categories">
+                                <a href="#endpoints-GETapi-products-category-categories">GET api/products/category/categories</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-products-category--category_name-">
+                                <a href="#endpoints-GETapi-products-category--category_name-">GET api/products/category/{category_name}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-user">
+                                <a href="#endpoints-GETapi-user">GET api/user</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+            </div>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+        <ul class="toc-footer" id="last-updated">
+        <li>Last updated: October 15 2022</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://localhost:8000</code></pre>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="endpoints">Endpoints</h1>
+
+    
+
+                                <h2 id="endpoints-GETapi-products">GET api/products</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/products" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/products"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;products&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: &quot;Up-sized mission-critical project&quot;,
+            &quot;description&quot;: &quot;Totam in aut sunt officiis sit provident atque molestias ea.&quot;,
+            &quot;currency&quot;: &quot;maxime&quot;,
+            &quot;price&quot;: 515,
+            &quot;brand&quot;: &quot;Fully-configurable demand-driven policy&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ccbb?text=consequatur&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;title&quot;: &quot;Cross-platform object-oriented functionalities&quot;,
+            &quot;description&quot;: &quot;Aperiam voluptas maxime explicabo voluptatem voluptas rem aut.&quot;,
+            &quot;currency&quot;: &quot;aut&quot;,
+            &quot;price&quot;: 8620,
+            &quot;brand&quot;: &quot;Progressive neutral middleware&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/003388?text=labore&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;title&quot;: &quot;Cross-group transitional application&quot;,
+            &quot;description&quot;: &quot;Neque porro ut dolorem numquam dolor ab non voluptatibus voluptas molestiae.&quot;,
+            &quot;currency&quot;: &quot;quis&quot;,
+            &quot;price&quot;: 97,
+            &quot;brand&quot;: &quot;Monitored discrete project&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/003399?text=aspernatur&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;title&quot;: &quot;Focused mobile hierarchy&quot;,
+            &quot;description&quot;: &quot;Soluta rerum sunt sit ab iste molestias nesciunt impedit est.&quot;,
+            &quot;currency&quot;: &quot;saepe&quot;,
+            &quot;price&quot;: 520065991,
+            &quot;brand&quot;: &quot;Visionary eco-centric matrix&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aa44?text=sint&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;title&quot;: &quot;Implemented reciprocal securedline&quot;,
+            &quot;description&quot;: &quot;Sed ullam minima quis autem laborum.&quot;,
+            &quot;currency&quot;: &quot;qui&quot;,
+            &quot;price&quot;: 25313599,
+            &quot;brand&quot;: &quot;Versatile exuding benchmark&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ff66?text=aliquam&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;title&quot;: &quot;Expanded motivating solution&quot;,
+            &quot;description&quot;: &quot;Consequatur quasi et et rem ad tempore.&quot;,
+            &quot;currency&quot;: &quot;incidunt&quot;,
+            &quot;price&quot;: 53,
+            &quot;brand&quot;: &quot;Polarised cohesive definition&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/006633?text=aut&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;title&quot;: &quot;Reactive impactful knowledgebase&quot;,
+            &quot;description&quot;: &quot;Unde maxime quas voluptatem ut consequatur corporis.&quot;,
+            &quot;currency&quot;: &quot;possimus&quot;,
+            &quot;price&quot;: 86443,
+            &quot;brand&quot;: &quot;Synchronised 6thgeneration benchmark&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/001133?text=minima&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;title&quot;: &quot;Configurable 4thgeneration hierarchy&quot;,
+            &quot;description&quot;: &quot;Ab explicabo rerum sunt et amet vel reiciendis.&quot;,
+            &quot;currency&quot;: &quot;cumque&quot;,
+            &quot;price&quot;: 890,
+            &quot;brand&quot;: &quot;Progressive executive emulation&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aa99?text=laudantium&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;title&quot;: &quot;Integrated context-sensitive throughput&quot;,
+            &quot;description&quot;: &quot;Ut mollitia dicta expedita voluptates dolor.&quot;,
+            &quot;currency&quot;: &quot;sint&quot;,
+            &quot;price&quot;: 982409837,
+            &quot;brand&quot;: &quot;Persevering responsive systemengine&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/002277?text=consequuntur&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;title&quot;: &quot;Integrated leadingedge emulation&quot;,
+            &quot;description&quot;: &quot;Dolorem soluta error nobis est rem excepturi voluptatibus et id deserunt atque.&quot;,
+            &quot;currency&quot;: &quot;ab&quot;,
+            &quot;price&quot;: 34,
+            &quot;brand&quot;: &quot;Optimized even-keeled functionalities&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ee11?text=nihil&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 11,
+            &quot;title&quot;: &quot;Secured holistic methodology&quot;,
+            &quot;description&quot;: &quot;Labore iure in error et deleniti sunt.&quot;,
+            &quot;currency&quot;: &quot;quidem&quot;,
+            &quot;price&quot;: 5327133,
+            &quot;brand&quot;: &quot;Secured national migration&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ff77?text=rem&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 12,
+            &quot;title&quot;: &quot;Multi-lateral analyzing contingency&quot;,
+            &quot;description&quot;: &quot;Maxime velit placeat dignissimos qui suscipit provident eaque odio.&quot;,
+            &quot;currency&quot;: &quot;id&quot;,
+            &quot;price&quot;: 20077120,
+            &quot;brand&quot;: &quot;Digitized exuding budgetarymanagement&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ff00?text=sed&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 13,
+            &quot;title&quot;: &quot;Focused regional toolset&quot;,
+            &quot;description&quot;: &quot;Ea nulla quae recusandae iusto molestias rerum consequatur quo.&quot;,
+            &quot;currency&quot;: &quot;accusamus&quot;,
+            &quot;price&quot;: 55,
+            &quot;brand&quot;: &quot;Horizontal exuding interface&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aa99?text=totam&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 14,
+            &quot;title&quot;: &quot;Self-enabling heuristic portal&quot;,
+            &quot;description&quot;: &quot;Dolores commodi quia aut eligendi quia rerum cumque.&quot;,
+            &quot;currency&quot;: &quot;ducimus&quot;,
+            &quot;price&quot;: 43447029,
+            &quot;brand&quot;: &quot;Cross-group human-resource solution&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/007777?text=porro&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 15,
+            &quot;title&quot;: &quot;Integrated asynchronous product&quot;,
+            &quot;description&quot;: &quot;At aliquid aut totam quis asperiores laborum in temporibus voluptas eos.&quot;,
+            &quot;currency&quot;: &quot;id&quot;,
+            &quot;price&quot;: 474690402,
+            &quot;brand&quot;: &quot;Down-sized foreground localareanetwork&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00dd00?text=cum&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 16,
+            &quot;title&quot;: &quot;User-friendly zeroadministration emulation&quot;,
+            &quot;description&quot;: &quot;Molestiae debitis placeat ad quia autem non quam.&quot;,
+            &quot;currency&quot;: &quot;excepturi&quot;,
+            &quot;price&quot;: 264443924,
+            &quot;brand&quot;: &quot;Open-architected systematic infrastructure&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0088ee?text=iusto&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 17,
+            &quot;title&quot;: &quot;Ergonomic leadingedge artificialintelligence&quot;,
+            &quot;description&quot;: &quot;Animi aut aliquam unde itaque sint ut.&quot;,
+            &quot;currency&quot;: &quot;necessitatibus&quot;,
+            &quot;price&quot;: 87591,
+            &quot;brand&quot;: &quot;Realigned 24/7 localareanetwork&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0022ee?text=facere&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 18,
+            &quot;title&quot;: &quot;Persevering fault-tolerant throughput&quot;,
+            &quot;description&quot;: &quot;Aut culpa reiciendis iusto corrupti maiores.&quot;,
+            &quot;currency&quot;: &quot;et&quot;,
+            &quot;price&quot;: 9036769,
+            &quot;brand&quot;: &quot;Profit-focused reciprocal extranet&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0022cc?text=et&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 19,
+            &quot;title&quot;: &quot;Open-architected holistic infrastructure&quot;,
+            &quot;description&quot;: &quot;Autem eveniet optio vel sed.&quot;,
+            &quot;currency&quot;: &quot;enim&quot;,
+            &quot;price&quot;: 3713529,
+            &quot;brand&quot;: &quot;Sharable mission-critical complexity&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ffdd?text=est&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 20,
+            &quot;title&quot;: &quot;Progressive web-enabled infrastructure&quot;,
+            &quot;description&quot;: &quot;Odit velit optio nulla fugiat error provident magni est.&quot;,
+            &quot;currency&quot;: &quot;fuga&quot;,
+            &quot;price&quot;: 5,
+            &quot;brand&quot;: &quot;Digitized real-time GraphicalUserInterface&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00cc44?text=ut&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 21,
+            &quot;title&quot;: &quot;Virtual systematic securedline&quot;,
+            &quot;description&quot;: &quot;Magni voluptatem tempora ullam ipsam officia voluptatem quisquam aperiam est unde.&quot;,
+            &quot;currency&quot;: &quot;vero&quot;,
+            &quot;price&quot;: 962803,
+            &quot;brand&quot;: &quot;Vision-oriented 6thgeneration leverage&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0055cc?text=molestiae&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 22,
+            &quot;title&quot;: &quot;Integrated global monitoring&quot;,
+            &quot;description&quot;: &quot;Eligendi ut et atque harum et.&quot;,
+            &quot;currency&quot;: &quot;ut&quot;,
+            &quot;price&quot;: 8905,
+            &quot;brand&quot;: &quot;Distributed mission-critical implementation&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/000099?text=sed&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 23,
+            &quot;title&quot;: &quot;Cross-platform impactful GraphicInterface&quot;,
+            &quot;description&quot;: &quot;Et consectetur beatae reiciendis quam accusantium omnis beatae dolor sunt tempore.&quot;,
+            &quot;currency&quot;: &quot;tempora&quot;,
+            &quot;price&quot;: 88284,
+            &quot;brand&quot;: &quot;De-engineered bottom-line hub&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/006644?text=fugit&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 24,
+            &quot;title&quot;: &quot;Organic intangible attitude&quot;,
+            &quot;description&quot;: &quot;Aut totam ipsa dolor laborum accusamus ad non ipsa.&quot;,
+            &quot;currency&quot;: &quot;veniam&quot;,
+            &quot;price&quot;: 46110,
+            &quot;brand&quot;: &quot;Multi-lateral local hardware&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0044dd?text=laborum&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 25,
+            &quot;title&quot;: &quot;Centralized dynamic installation&quot;,
+            &quot;description&quot;: &quot;Facere laboriosam voluptatem dolores voluptate repellat veritatis porro provident magni repudiandae.&quot;,
+            &quot;currency&quot;: &quot;aspernatur&quot;,
+            &quot;price&quot;: 84525079,
+            &quot;brand&quot;: &quot;User-friendly foreground securedline&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00cc00?text=consequatur&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 26,
+            &quot;title&quot;: &quot;Down-sized leadingedge focusgroup&quot;,
+            &quot;description&quot;: &quot;Rerum minus qui facere sed atque at ea sit.&quot;,
+            &quot;currency&quot;: &quot;voluptatum&quot;,
+            &quot;price&quot;: 15,
+            &quot;brand&quot;: &quot;Seamless solution-oriented implementation&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00bb22?text=rerum&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 27,
+            &quot;title&quot;: &quot;Persistent national openarchitecture&quot;,
+            &quot;description&quot;: &quot;Error nihil accusantium dolore fugiat et.&quot;,
+            &quot;currency&quot;: &quot;quasi&quot;,
+            &quot;price&quot;: 6094972,
+            &quot;brand&quot;: &quot;Diverse leadingedge data-warehouse&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0055ee?text=adipisci&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 28,
+            &quot;title&quot;: &quot;Cross-group attitude-oriented installation&quot;,
+            &quot;description&quot;: &quot;In consectetur corporis quas ut quibusdam magnam.&quot;,
+            &quot;currency&quot;: &quot;architecto&quot;,
+            &quot;price&quot;: 8,
+            &quot;brand&quot;: &quot;Total user-facing flexibility&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0044aa?text=perferendis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 29,
+            &quot;title&quot;: &quot;Upgradable zerodefect capacity&quot;,
+            &quot;description&quot;: &quot;Explicabo et nihil reprehenderit et sapiente commodi ea dolorem reprehenderit.&quot;,
+            &quot;currency&quot;: &quot;cum&quot;,
+            &quot;price&quot;: 65,
+            &quot;brand&quot;: &quot;Assimilated attitude-oriented moderator&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/007788?text=in&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 30,
+            &quot;title&quot;: &quot;Programmable bottom-line knowledgeuser&quot;,
+            &quot;description&quot;: &quot;Architecto cum alias labore dignissimos itaque autem aut sed natus perferendis.&quot;,
+            &quot;currency&quot;: &quot;rem&quot;,
+            &quot;price&quot;: 8,
+            &quot;brand&quot;: &quot;Fundamental systematic benchmark&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ddff?text=animi&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 31,
+            &quot;title&quot;: &quot;Balanced analyzing collaboration&quot;,
+            &quot;description&quot;: &quot;Et debitis quos tempora voluptas.&quot;,
+            &quot;currency&quot;: &quot;est&quot;,
+            &quot;price&quot;: 155824,
+            &quot;brand&quot;: &quot;Switchable actuating archive&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0011ee?text=error&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 32,
+            &quot;title&quot;: &quot;Streamlined mobile methodology&quot;,
+            &quot;description&quot;: &quot;Voluptas veritatis cumque in sapiente a sed voluptatibus dolorem.&quot;,
+            &quot;currency&quot;: &quot;quos&quot;,
+            &quot;price&quot;: 3947993,
+            &quot;brand&quot;: &quot;Multi-tiered coherent task-force&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/008877?text=commodi&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 33,
+            &quot;title&quot;: &quot;Optional bi-directional software&quot;,
+            &quot;description&quot;: &quot;Dolorum ipsam blanditiis facere accusantium incidunt corporis veniam laborum earum.&quot;,
+            &quot;currency&quot;: &quot;expedita&quot;,
+            &quot;price&quot;: 269724,
+            &quot;brand&quot;: &quot;User-centric grid-enabled concept&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0011aa?text=modi&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 34,
+            &quot;title&quot;: &quot;Integrated empowering workforce&quot;,
+            &quot;description&quot;: &quot;Sit pariatur deserunt voluptas omnis quia facere dignissimos sunt est.&quot;,
+            &quot;currency&quot;: &quot;consequatur&quot;,
+            &quot;price&quot;: 29990,
+            &quot;brand&quot;: &quot;Proactive global intranet&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00bb99?text=sunt&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 35,
+            &quot;title&quot;: &quot;Triple-buffered 24/7 monitoring&quot;,
+            &quot;description&quot;: &quot;Aut consequatur iusto nisi qui qui corrupti enim ea et molestiae rerum.&quot;,
+            &quot;currency&quot;: &quot;et&quot;,
+            &quot;price&quot;: 833759,
+            &quot;brand&quot;: &quot;Managed attitude-oriented approach&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/002200?text=et&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 36,
+            &quot;title&quot;: &quot;Versatile bi-directional project&quot;,
+            &quot;description&quot;: &quot;Et et laboriosam quia et velit optio fugiat dolore.&quot;,
+            &quot;currency&quot;: &quot;quod&quot;,
+            &quot;price&quot;: 6223,
+            &quot;brand&quot;: &quot;Cross-group scalable frame&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00bb22?text=et&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 37,
+            &quot;title&quot;: &quot;Mandatory bandwidth-monitored application&quot;,
+            &quot;description&quot;: &quot;Aperiam qui hic tenetur minima incidunt laboriosam dicta nihil quos.&quot;,
+            &quot;currency&quot;: &quot;dolor&quot;,
+            &quot;price&quot;: 6316,
+            &quot;brand&quot;: &quot;Ameliorated composite frame&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/007700?text=voluptatem&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 38,
+            &quot;title&quot;: &quot;Team-oriented actuating initiative&quot;,
+            &quot;description&quot;: &quot;Molestiae in et recusandae non et occaecati.&quot;,
+            &quot;currency&quot;: &quot;corrupti&quot;,
+            &quot;price&quot;: 81,
+            &quot;brand&quot;: &quot;Balanced holistic toolset&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aacc?text=corporis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 39,
+            &quot;title&quot;: &quot;Seamless homogeneous productivity&quot;,
+            &quot;description&quot;: &quot;Fugiat velit quo amet alias nemo qui optio possimus et a earum.&quot;,
+            &quot;currency&quot;: &quot;saepe&quot;,
+            &quot;price&quot;: 1453,
+            &quot;brand&quot;: &quot;Expanded non-volatile alliance&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/009988?text=maiores&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 40,
+            &quot;title&quot;: &quot;Optimized content-based collaboration&quot;,
+            &quot;description&quot;: &quot;Porro aut voluptate illum ad qui ad beatae quis molestias.&quot;,
+            &quot;currency&quot;: &quot;autem&quot;,
+            &quot;price&quot;: 6,
+            &quot;brand&quot;: &quot;Centralized leadingedge ability&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/009944?text=qui&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 41,
+            &quot;title&quot;: &quot;Synergistic impactful protocol&quot;,
+            &quot;description&quot;: &quot;Velit veritatis consequatur recusandae omnis eos.&quot;,
+            &quot;currency&quot;: &quot;libero&quot;,
+            &quot;price&quot;: 951,
+            &quot;brand&quot;: &quot;Integrated exuding application&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ffff?text=sunt&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 42,
+            &quot;title&quot;: &quot;Digitized 6thgeneration throughput&quot;,
+            &quot;description&quot;: &quot;Vero tenetur cumque sint voluptates hic ipsum molestiae perspiciatis sunt hic.&quot;,
+            &quot;currency&quot;: &quot;dolore&quot;,
+            &quot;price&quot;: 5,
+            &quot;brand&quot;: &quot;Implemented zerotolerance framework&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0000ee?text=repellat&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 43,
+            &quot;title&quot;: &quot;Business-focused composite hardware&quot;,
+            &quot;description&quot;: &quot;Recusandae aperiam ut est inventore nulla sunt.&quot;,
+            &quot;currency&quot;: &quot;et&quot;,
+            &quot;price&quot;: 38,
+            &quot;brand&quot;: &quot;Monitored system-worthy database&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ff99?text=sed&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 44,
+            &quot;title&quot;: &quot;Versatile bi-directional systemengine&quot;,
+            &quot;description&quot;: &quot;Illo tempore at quibusdam doloremque ducimus hic eaque ex corporis.&quot;,
+            &quot;currency&quot;: &quot;sit&quot;,
+            &quot;price&quot;: 25608,
+            &quot;brand&quot;: &quot;Re-engineered maximized analyzer&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0044aa?text=nihil&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 45,
+            &quot;title&quot;: &quot;Adaptive intangible initiative&quot;,
+            &quot;description&quot;: &quot;Ut dolor quis doloremque quo quas quae.&quot;,
+            &quot;currency&quot;: &quot;voluptatem&quot;,
+            &quot;price&quot;: 9,
+            &quot;brand&quot;: &quot;Balanced mobile knowledgebase&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00bb00?text=at&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 46,
+            &quot;title&quot;: &quot;Down-sized discrete openarchitecture&quot;,
+            &quot;description&quot;: &quot;Consequuntur aperiam vel sit sed assumenda nobis voluptatum omnis numquam dolores.&quot;,
+            &quot;currency&quot;: &quot;praesentium&quot;,
+            &quot;price&quot;: 5394446,
+            &quot;brand&quot;: &quot;Organized dynamic frame&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00cc66?text=impedit&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 47,
+            &quot;title&quot;: &quot;Reduced coherent synergy&quot;,
+            &quot;description&quot;: &quot;Cum in exercitationem voluptas nisi sit sunt quos omnis quis ratione.&quot;,
+            &quot;currency&quot;: &quot;ex&quot;,
+            &quot;price&quot;: 210574,
+            &quot;brand&quot;: &quot;Automated high-level encoding&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00cc77?text=asperiores&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 48,
+            &quot;title&quot;: &quot;Multi-layered 6thgeneration securedline&quot;,
+            &quot;description&quot;: &quot;Eaque excepturi dolor distinctio mollitia rerum incidunt tempore ducimus.&quot;,
+            &quot;currency&quot;: &quot;deserunt&quot;,
+            &quot;price&quot;: 126941283,
+            &quot;brand&quot;: &quot;Business-focused web-enabled collaboration&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0000aa?text=quia&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 49,
+            &quot;title&quot;: &quot;Integrated 4thgeneration capacity&quot;,
+            &quot;description&quot;: &quot;Beatae cum et quisquam quaerat ex atque quas ea unde maxime.&quot;,
+            &quot;currency&quot;: &quot;neque&quot;,
+            &quot;price&quot;: 9,
+            &quot;brand&quot;: &quot;Persistent secondary workforce&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aa11?text=pariatur&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 50,
+            &quot;title&quot;: &quot;Proactive background installation&quot;,
+            &quot;description&quot;: &quot;Doloremque aut dolor dolorum eum sunt dolorem provident velit.&quot;,
+            &quot;currency&quot;: &quot;maiores&quot;,
+            &quot;price&quot;: 831,
+            &quot;brand&quot;: &quot;Open-architected encompassing paradigm&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00cc55?text=distinctio&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 51,
+            &quot;title&quot;: &quot;Advanced regional attitude&quot;,
+            &quot;description&quot;: &quot;Ut porro ut eveniet explicabo soluta.&quot;,
+            &quot;currency&quot;: &quot;qui&quot;,
+            &quot;price&quot;: 595165193,
+            &quot;brand&quot;: &quot;Self-enabling actuating definition&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/001199?text=officiis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 52,
+            &quot;title&quot;: &quot;Compatible zeroadministration service-desk&quot;,
+            &quot;description&quot;: &quot;Quia placeat a ratione et error aut.&quot;,
+            &quot;currency&quot;: &quot;quo&quot;,
+            &quot;price&quot;: 154245653,
+            &quot;brand&quot;: &quot;Customizable nextgeneration initiative&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0044bb?text=sed&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 53,
+            &quot;title&quot;: &quot;Multi-layered context-sensitive project&quot;,
+            &quot;description&quot;: &quot;Libero eaque tempora accusamus animi ipsum qui quas.&quot;,
+            &quot;currency&quot;: &quot;ipsa&quot;,
+            &quot;price&quot;: 1191617,
+            &quot;brand&quot;: &quot;Vision-oriented homogeneous orchestration&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/006633?text=corporis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 54,
+            &quot;title&quot;: &quot;Adaptive eco-centric model&quot;,
+            &quot;description&quot;: &quot;Sit omnis aut assumenda et dolorem voluptatem.&quot;,
+            &quot;currency&quot;: &quot;accusamus&quot;,
+            &quot;price&quot;: 83,
+            &quot;brand&quot;: &quot;Persevering 24hour website&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ee22?text=sit&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 55,
+            &quot;title&quot;: &quot;Stand-alone incremental synergy&quot;,
+            &quot;description&quot;: &quot;Molestiae quasi consequatur tenetur ducimus odit quo animi accusantium molestias voluptatem.&quot;,
+            &quot;currency&quot;: &quot;voluptates&quot;,
+            &quot;price&quot;: 157200044,
+            &quot;brand&quot;: &quot;Centralized uniform pricingstructure&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/007722?text=quo&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 56,
+            &quot;title&quot;: &quot;Digitized secondary budgetarymanagement&quot;,
+            &quot;description&quot;: &quot;Voluptate qui a omnis architecto rem ut modi.&quot;,
+            &quot;currency&quot;: &quot;debitis&quot;,
+            &quot;price&quot;: 33,
+            &quot;brand&quot;: &quot;Expanded leadingedge localareanetwork&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00dd66?text=et&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 57,
+            &quot;title&quot;: &quot;Devolved empowering model&quot;,
+            &quot;description&quot;: &quot;Hic eius ut repudiandae praesentium et et.&quot;,
+            &quot;currency&quot;: &quot;velit&quot;,
+            &quot;price&quot;: 9985661,
+            &quot;brand&quot;: &quot;Reverse-engineered multimedia policy&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aaaa?text=aut&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 58,
+            &quot;title&quot;: &quot;Grass-roots methodical GraphicalUserInterface&quot;,
+            &quot;description&quot;: &quot;Quo dolore enim est et.&quot;,
+            &quot;currency&quot;: &quot;voluptas&quot;,
+            &quot;price&quot;: 7,
+            &quot;brand&quot;: &quot;De-engineered even-keeled core&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/008844?text=repellendus&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 59,
+            &quot;title&quot;: &quot;Persevering mobile challenge&quot;,
+            &quot;description&quot;: &quot;Officiis consequuntur esse fugit in dolor nemo aliquid.&quot;,
+            &quot;currency&quot;: &quot;nihil&quot;,
+            &quot;price&quot;: 96,
+            &quot;brand&quot;: &quot;Secured client-server data-warehouse&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/004488?text=quos&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 60,
+            &quot;title&quot;: &quot;Future-proofed interactive firmware&quot;,
+            &quot;description&quot;: &quot;Id aliquam corrupti eum sed perspiciatis assumenda ut quibusdam tempore debitis.&quot;,
+            &quot;currency&quot;: &quot;neque&quot;,
+            &quot;price&quot;: 427,
+            &quot;brand&quot;: &quot;Synergized human-resource interface&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ffbb?text=deleniti&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 61,
+            &quot;title&quot;: &quot;Nitro 5&quot;,
+            &quot;description&quot;: &quot;the best gaming laptop&quot;,
+            &quot;currency&quot;: &quot;usd&quot;,
+            &quot;price&quot;: 1000,
+            &quot;brand&quot;: &quot;Acer&quot;,
+            &quot;category&quot;: &quot;Laptop&quot;,
+            &quot;image&quot;: &quot;https://d1rlzxa98cyc61.cloudfront.net/catalog/product/cache/1801c418208f9607a371e61f8d9184d9/1/8/182730_2022.jpg&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T07:16:44.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T07:16:44.000000Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products"></code></pre>
+</span>
+<span id="execution-error-GETapi-products" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products"></code></pre>
+</span>
+<form id="form-GETapi-products" data-method="GET"
+      data-path="api/products"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products"
+                    onclick="tryItOut('GETapi-products');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products"
+                    onclick="cancelTryOut('GETapi-products');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="endpoints-POSTapi-products-add">POST api/products/add</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-products-add">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/products/add" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"ab\",
+    \"description\": \"aut\",
+    \"currency\": \"laudantium\",
+    \"price\": \"delectus\",
+    \"brand\": \"asperiores\",
+    \"category\": \"distinctio\",
+    \"image\": \"est\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/products/add"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "ab",
+    "description": "aut",
+    "currency": "laudantium",
+    "price": "delectus",
+    "brand": "asperiores",
+    "category": "distinctio",
+    "image": "est"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-products-add">
+</span>
+<span id="execution-results-POSTapi-products-add" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-products-add"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-products-add"></code></pre>
+</span>
+<span id="execution-error-POSTapi-products-add" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-products-add"></code></pre>
+</span>
+<form id="form-POSTapi-products-add" data-method="POST"
+      data-path="api/products/add"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-products-add', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-products-add"
+                    onclick="tryItOut('POSTapi-products-add');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-products-add"
+                    onclick="cancelTryOut('POSTapi-products-add');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-products-add" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/products/add</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="title"
+               data-endpoint="POSTapi-products-add"
+               value="ab"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="description"
+               data-endpoint="POSTapi-products-add"
+               value="aut"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>currency</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="currency"
+               data-endpoint="POSTapi-products-add"
+               value="laudantium"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>price</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="price"
+               data-endpoint="POSTapi-products-add"
+               value="delectus"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>brand</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="brand"
+               data-endpoint="POSTapi-products-add"
+               value="asperiores"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>category</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="category"
+               data-endpoint="POSTapi-products-add"
+               value="distinctio"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="image"
+               data-endpoint="POSTapi-products-add"
+               value="est"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+                    <h2 id="endpoints-GETapi-products--product_id-">GET api/products/{product_id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products--product_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/products/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/products/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products--product_id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 58
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;products&quot;: {
+        &quot;id&quot;: 1,
+        &quot;title&quot;: &quot;Up-sized mission-critical project&quot;,
+        &quot;description&quot;: &quot;Totam in aut sunt officiis sit provident atque molestias ea.&quot;,
+        &quot;currency&quot;: &quot;maxime&quot;,
+        &quot;price&quot;: 515,
+        &quot;brand&quot;: &quot;Fully-configurable demand-driven policy&quot;,
+        &quot;category&quot;: &quot;book&quot;,
+        &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ccbb?text=consequatur&quot;,
+        &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products--product_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products--product_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products--product_id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-products--product_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products--product_id-"></code></pre>
+</span>
+<form id="form-GETapi-products--product_id-" data-method="GET"
+      data-path="api/products/{product_id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products--product_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products--product_id-"
+                    onclick="tryItOut('GETapi-products--product_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products--product_id-"
+                    onclick="cancelTryOut('GETapi-products--product_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products--product_id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/{product_id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>product_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="product_id"
+               data-endpoint="GETapi-products--product_id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the product.</p>
+            </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-products--category--category">GET api/products/{category}/category</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products--category--category">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/products/1/category" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/products/1/category"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products--category--category">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 57
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">[]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products--category--category" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products--category--category"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products--category--category"></code></pre>
+</span>
+<span id="execution-error-GETapi-products--category--category" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products--category--category"></code></pre>
+</span>
+<form id="form-GETapi-products--category--category" data-method="GET"
+      data-path="api/products/{category}/category"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products--category--category', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products--category--category"
+                    onclick="tryItOut('GETapi-products--category--category');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products--category--category"
+                    onclick="cancelTryOut('GETapi-products--category--category');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products--category--category" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/{category}/category</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>category</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="category"
+               data-endpoint="GETapi-products--category--category"
+               value="1"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
+                    <h2 id="endpoints-PUTapi-products--product_id--update">PUT api/products/{product_id}/update</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-products--product_id--update">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8000/api/products/1/update" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"similique\",
+    \"description\": \"amet\",
+    \"currency\": \"rem\",
+    \"price\": \"qui\",
+    \"brand\": \"nisi\",
+    \"category\": \"architecto\",
+    \"image\": \"ut\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/products/1/update"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "similique",
+    "description": "amet",
+    "currency": "rem",
+    "price": "qui",
+    "brand": "nisi",
+    "category": "architecto",
+    "image": "ut"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-products--product_id--update">
+</span>
+<span id="execution-results-PUTapi-products--product_id--update" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-products--product_id--update"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-products--product_id--update"></code></pre>
+</span>
+<span id="execution-error-PUTapi-products--product_id--update" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-products--product_id--update"></code></pre>
+</span>
+<form id="form-PUTapi-products--product_id--update" data-method="PUT"
+      data-path="api/products/{product_id}/update"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-products--product_id--update', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-products--product_id--update"
+                    onclick="tryItOut('PUTapi-products--product_id--update');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-products--product_id--update"
+                    onclick="cancelTryOut('PUTapi-products--product_id--update');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-products--product_id--update" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/products/{product_id}/update</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>product_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="product_id"
+               data-endpoint="PUTapi-products--product_id--update"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the product.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="title"
+               data-endpoint="PUTapi-products--product_id--update"
+               value="similique"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="description"
+               data-endpoint="PUTapi-products--product_id--update"
+               value="amet"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>currency</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="currency"
+               data-endpoint="PUTapi-products--product_id--update"
+               value="rem"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>price</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="price"
+               data-endpoint="PUTapi-products--product_id--update"
+               value="qui"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>brand</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="brand"
+               data-endpoint="PUTapi-products--product_id--update"
+               value="nisi"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>category</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="category"
+               data-endpoint="PUTapi-products--product_id--update"
+               value="architecto"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="image"
+               data-endpoint="PUTapi-products--product_id--update"
+               value="ut"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-products--product_id--delete">DELETE api/products/{product_id}/delete</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-products--product_id--delete">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8000/api/products/1/delete" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/products/1/delete"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-products--product_id--delete">
+</span>
+<span id="execution-results-DELETEapi-products--product_id--delete" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-products--product_id--delete"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-products--product_id--delete"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-products--product_id--delete" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-products--product_id--delete"></code></pre>
+</span>
+<form id="form-DELETEapi-products--product_id--delete" data-method="DELETE"
+      data-path="api/products/{product_id}/delete"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-products--product_id--delete', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-products--product_id--delete"
+                    onclick="tryItOut('DELETEapi-products--product_id--delete');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-products--product_id--delete"
+                    onclick="cancelTryOut('DELETEapi-products--product_id--delete');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-products--product_id--delete" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/products/{product_id}/delete</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>product_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="product_id"
+               data-endpoint="DELETEapi-products--product_id--delete"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the product.</p>
+            </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-products--title--search">GET api/products/{title}/search</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products--title--search">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/products/1/search" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/products/1/search"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products--title--search">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 56
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">[]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products--title--search" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products--title--search"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products--title--search"></code></pre>
+</span>
+<span id="execution-error-GETapi-products--title--search" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products--title--search"></code></pre>
+</span>
+<form id="form-GETapi-products--title--search" data-method="GET"
+      data-path="api/products/{title}/search"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products--title--search', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products--title--search"
+                    onclick="tryItOut('GETapi-products--title--search');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products--title--search"
+                    onclick="cancelTryOut('GETapi-products--title--search');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products--title--search" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/{title}/search</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>title</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="title"
+               data-endpoint="GETapi-products--title--search"
+               value="1"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-products-category-categories">GET api/products/category/categories</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products-category-categories">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/products/category/categories" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/products/category/categories"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products-category-categories">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;products&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: &quot;Up-sized mission-critical project&quot;,
+            &quot;description&quot;: &quot;Totam in aut sunt officiis sit provident atque molestias ea.&quot;,
+            &quot;currency&quot;: &quot;maxime&quot;,
+            &quot;price&quot;: 515,
+            &quot;brand&quot;: &quot;Fully-configurable demand-driven policy&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ccbb?text=consequatur&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;title&quot;: &quot;Cross-platform object-oriented functionalities&quot;,
+            &quot;description&quot;: &quot;Aperiam voluptas maxime explicabo voluptatem voluptas rem aut.&quot;,
+            &quot;currency&quot;: &quot;aut&quot;,
+            &quot;price&quot;: 8620,
+            &quot;brand&quot;: &quot;Progressive neutral middleware&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/003388?text=labore&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;title&quot;: &quot;Cross-group transitional application&quot;,
+            &quot;description&quot;: &quot;Neque porro ut dolorem numquam dolor ab non voluptatibus voluptas molestiae.&quot;,
+            &quot;currency&quot;: &quot;quis&quot;,
+            &quot;price&quot;: 97,
+            &quot;brand&quot;: &quot;Monitored discrete project&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/003399?text=aspernatur&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;title&quot;: &quot;Focused mobile hierarchy&quot;,
+            &quot;description&quot;: &quot;Soluta rerum sunt sit ab iste molestias nesciunt impedit est.&quot;,
+            &quot;currency&quot;: &quot;saepe&quot;,
+            &quot;price&quot;: 520065991,
+            &quot;brand&quot;: &quot;Visionary eco-centric matrix&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aa44?text=sint&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;title&quot;: &quot;Implemented reciprocal securedline&quot;,
+            &quot;description&quot;: &quot;Sed ullam minima quis autem laborum.&quot;,
+            &quot;currency&quot;: &quot;qui&quot;,
+            &quot;price&quot;: 25313599,
+            &quot;brand&quot;: &quot;Versatile exuding benchmark&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ff66?text=aliquam&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;title&quot;: &quot;Expanded motivating solution&quot;,
+            &quot;description&quot;: &quot;Consequatur quasi et et rem ad tempore.&quot;,
+            &quot;currency&quot;: &quot;incidunt&quot;,
+            &quot;price&quot;: 53,
+            &quot;brand&quot;: &quot;Polarised cohesive definition&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/006633?text=aut&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;title&quot;: &quot;Reactive impactful knowledgebase&quot;,
+            &quot;description&quot;: &quot;Unde maxime quas voluptatem ut consequatur corporis.&quot;,
+            &quot;currency&quot;: &quot;possimus&quot;,
+            &quot;price&quot;: 86443,
+            &quot;brand&quot;: &quot;Synchronised 6thgeneration benchmark&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/001133?text=minima&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;title&quot;: &quot;Configurable 4thgeneration hierarchy&quot;,
+            &quot;description&quot;: &quot;Ab explicabo rerum sunt et amet vel reiciendis.&quot;,
+            &quot;currency&quot;: &quot;cumque&quot;,
+            &quot;price&quot;: 890,
+            &quot;brand&quot;: &quot;Progressive executive emulation&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aa99?text=laudantium&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;title&quot;: &quot;Integrated context-sensitive throughput&quot;,
+            &quot;description&quot;: &quot;Ut mollitia dicta expedita voluptates dolor.&quot;,
+            &quot;currency&quot;: &quot;sint&quot;,
+            &quot;price&quot;: 982409837,
+            &quot;brand&quot;: &quot;Persevering responsive systemengine&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/002277?text=consequuntur&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;title&quot;: &quot;Integrated leadingedge emulation&quot;,
+            &quot;description&quot;: &quot;Dolorem soluta error nobis est rem excepturi voluptatibus et id deserunt atque.&quot;,
+            &quot;currency&quot;: &quot;ab&quot;,
+            &quot;price&quot;: 34,
+            &quot;brand&quot;: &quot;Optimized even-keeled functionalities&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ee11?text=nihil&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 11,
+            &quot;title&quot;: &quot;Secured holistic methodology&quot;,
+            &quot;description&quot;: &quot;Labore iure in error et deleniti sunt.&quot;,
+            &quot;currency&quot;: &quot;quidem&quot;,
+            &quot;price&quot;: 5327133,
+            &quot;brand&quot;: &quot;Secured national migration&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ff77?text=rem&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 12,
+            &quot;title&quot;: &quot;Multi-lateral analyzing contingency&quot;,
+            &quot;description&quot;: &quot;Maxime velit placeat dignissimos qui suscipit provident eaque odio.&quot;,
+            &quot;currency&quot;: &quot;id&quot;,
+            &quot;price&quot;: 20077120,
+            &quot;brand&quot;: &quot;Digitized exuding budgetarymanagement&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ff00?text=sed&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 13,
+            &quot;title&quot;: &quot;Focused regional toolset&quot;,
+            &quot;description&quot;: &quot;Ea nulla quae recusandae iusto molestias rerum consequatur quo.&quot;,
+            &quot;currency&quot;: &quot;accusamus&quot;,
+            &quot;price&quot;: 55,
+            &quot;brand&quot;: &quot;Horizontal exuding interface&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aa99?text=totam&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 14,
+            &quot;title&quot;: &quot;Self-enabling heuristic portal&quot;,
+            &quot;description&quot;: &quot;Dolores commodi quia aut eligendi quia rerum cumque.&quot;,
+            &quot;currency&quot;: &quot;ducimus&quot;,
+            &quot;price&quot;: 43447029,
+            &quot;brand&quot;: &quot;Cross-group human-resource solution&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/007777?text=porro&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 15,
+            &quot;title&quot;: &quot;Integrated asynchronous product&quot;,
+            &quot;description&quot;: &quot;At aliquid aut totam quis asperiores laborum in temporibus voluptas eos.&quot;,
+            &quot;currency&quot;: &quot;id&quot;,
+            &quot;price&quot;: 474690402,
+            &quot;brand&quot;: &quot;Down-sized foreground localareanetwork&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00dd00?text=cum&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 16,
+            &quot;title&quot;: &quot;User-friendly zeroadministration emulation&quot;,
+            &quot;description&quot;: &quot;Molestiae debitis placeat ad quia autem non quam.&quot;,
+            &quot;currency&quot;: &quot;excepturi&quot;,
+            &quot;price&quot;: 264443924,
+            &quot;brand&quot;: &quot;Open-architected systematic infrastructure&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0088ee?text=iusto&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 17,
+            &quot;title&quot;: &quot;Ergonomic leadingedge artificialintelligence&quot;,
+            &quot;description&quot;: &quot;Animi aut aliquam unde itaque sint ut.&quot;,
+            &quot;currency&quot;: &quot;necessitatibus&quot;,
+            &quot;price&quot;: 87591,
+            &quot;brand&quot;: &quot;Realigned 24/7 localareanetwork&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0022ee?text=facere&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 18,
+            &quot;title&quot;: &quot;Persevering fault-tolerant throughput&quot;,
+            &quot;description&quot;: &quot;Aut culpa reiciendis iusto corrupti maiores.&quot;,
+            &quot;currency&quot;: &quot;et&quot;,
+            &quot;price&quot;: 9036769,
+            &quot;brand&quot;: &quot;Profit-focused reciprocal extranet&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0022cc?text=et&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 19,
+            &quot;title&quot;: &quot;Open-architected holistic infrastructure&quot;,
+            &quot;description&quot;: &quot;Autem eveniet optio vel sed.&quot;,
+            &quot;currency&quot;: &quot;enim&quot;,
+            &quot;price&quot;: 3713529,
+            &quot;brand&quot;: &quot;Sharable mission-critical complexity&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ffdd?text=est&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 20,
+            &quot;title&quot;: &quot;Progressive web-enabled infrastructure&quot;,
+            &quot;description&quot;: &quot;Odit velit optio nulla fugiat error provident magni est.&quot;,
+            &quot;currency&quot;: &quot;fuga&quot;,
+            &quot;price&quot;: 5,
+            &quot;brand&quot;: &quot;Digitized real-time GraphicalUserInterface&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00cc44?text=ut&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 21,
+            &quot;title&quot;: &quot;Virtual systematic securedline&quot;,
+            &quot;description&quot;: &quot;Magni voluptatem tempora ullam ipsam officia voluptatem quisquam aperiam est unde.&quot;,
+            &quot;currency&quot;: &quot;vero&quot;,
+            &quot;price&quot;: 962803,
+            &quot;brand&quot;: &quot;Vision-oriented 6thgeneration leverage&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0055cc?text=molestiae&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 22,
+            &quot;title&quot;: &quot;Integrated global monitoring&quot;,
+            &quot;description&quot;: &quot;Eligendi ut et atque harum et.&quot;,
+            &quot;currency&quot;: &quot;ut&quot;,
+            &quot;price&quot;: 8905,
+            &quot;brand&quot;: &quot;Distributed mission-critical implementation&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/000099?text=sed&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 23,
+            &quot;title&quot;: &quot;Cross-platform impactful GraphicInterface&quot;,
+            &quot;description&quot;: &quot;Et consectetur beatae reiciendis quam accusantium omnis beatae dolor sunt tempore.&quot;,
+            &quot;currency&quot;: &quot;tempora&quot;,
+            &quot;price&quot;: 88284,
+            &quot;brand&quot;: &quot;De-engineered bottom-line hub&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/006644?text=fugit&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 24,
+            &quot;title&quot;: &quot;Organic intangible attitude&quot;,
+            &quot;description&quot;: &quot;Aut totam ipsa dolor laborum accusamus ad non ipsa.&quot;,
+            &quot;currency&quot;: &quot;veniam&quot;,
+            &quot;price&quot;: 46110,
+            &quot;brand&quot;: &quot;Multi-lateral local hardware&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0044dd?text=laborum&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 25,
+            &quot;title&quot;: &quot;Centralized dynamic installation&quot;,
+            &quot;description&quot;: &quot;Facere laboriosam voluptatem dolores voluptate repellat veritatis porro provident magni repudiandae.&quot;,
+            &quot;currency&quot;: &quot;aspernatur&quot;,
+            &quot;price&quot;: 84525079,
+            &quot;brand&quot;: &quot;User-friendly foreground securedline&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00cc00?text=consequatur&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 26,
+            &quot;title&quot;: &quot;Down-sized leadingedge focusgroup&quot;,
+            &quot;description&quot;: &quot;Rerum minus qui facere sed atque at ea sit.&quot;,
+            &quot;currency&quot;: &quot;voluptatum&quot;,
+            &quot;price&quot;: 15,
+            &quot;brand&quot;: &quot;Seamless solution-oriented implementation&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00bb22?text=rerum&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 27,
+            &quot;title&quot;: &quot;Persistent national openarchitecture&quot;,
+            &quot;description&quot;: &quot;Error nihil accusantium dolore fugiat et.&quot;,
+            &quot;currency&quot;: &quot;quasi&quot;,
+            &quot;price&quot;: 6094972,
+            &quot;brand&quot;: &quot;Diverse leadingedge data-warehouse&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0055ee?text=adipisci&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 28,
+            &quot;title&quot;: &quot;Cross-group attitude-oriented installation&quot;,
+            &quot;description&quot;: &quot;In consectetur corporis quas ut quibusdam magnam.&quot;,
+            &quot;currency&quot;: &quot;architecto&quot;,
+            &quot;price&quot;: 8,
+            &quot;brand&quot;: &quot;Total user-facing flexibility&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0044aa?text=perferendis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 29,
+            &quot;title&quot;: &quot;Upgradable zerodefect capacity&quot;,
+            &quot;description&quot;: &quot;Explicabo et nihil reprehenderit et sapiente commodi ea dolorem reprehenderit.&quot;,
+            &quot;currency&quot;: &quot;cum&quot;,
+            &quot;price&quot;: 65,
+            &quot;brand&quot;: &quot;Assimilated attitude-oriented moderator&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/007788?text=in&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 30,
+            &quot;title&quot;: &quot;Programmable bottom-line knowledgeuser&quot;,
+            &quot;description&quot;: &quot;Architecto cum alias labore dignissimos itaque autem aut sed natus perferendis.&quot;,
+            &quot;currency&quot;: &quot;rem&quot;,
+            &quot;price&quot;: 8,
+            &quot;brand&quot;: &quot;Fundamental systematic benchmark&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ddff?text=animi&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 31,
+            &quot;title&quot;: &quot;Balanced analyzing collaboration&quot;,
+            &quot;description&quot;: &quot;Et debitis quos tempora voluptas.&quot;,
+            &quot;currency&quot;: &quot;est&quot;,
+            &quot;price&quot;: 155824,
+            &quot;brand&quot;: &quot;Switchable actuating archive&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0011ee?text=error&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 32,
+            &quot;title&quot;: &quot;Streamlined mobile methodology&quot;,
+            &quot;description&quot;: &quot;Voluptas veritatis cumque in sapiente a sed voluptatibus dolorem.&quot;,
+            &quot;currency&quot;: &quot;quos&quot;,
+            &quot;price&quot;: 3947993,
+            &quot;brand&quot;: &quot;Multi-tiered coherent task-force&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/008877?text=commodi&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 33,
+            &quot;title&quot;: &quot;Optional bi-directional software&quot;,
+            &quot;description&quot;: &quot;Dolorum ipsam blanditiis facere accusantium incidunt corporis veniam laborum earum.&quot;,
+            &quot;currency&quot;: &quot;expedita&quot;,
+            &quot;price&quot;: 269724,
+            &quot;brand&quot;: &quot;User-centric grid-enabled concept&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0011aa?text=modi&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 34,
+            &quot;title&quot;: &quot;Integrated empowering workforce&quot;,
+            &quot;description&quot;: &quot;Sit pariatur deserunt voluptas omnis quia facere dignissimos sunt est.&quot;,
+            &quot;currency&quot;: &quot;consequatur&quot;,
+            &quot;price&quot;: 29990,
+            &quot;brand&quot;: &quot;Proactive global intranet&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00bb99?text=sunt&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 35,
+            &quot;title&quot;: &quot;Triple-buffered 24/7 monitoring&quot;,
+            &quot;description&quot;: &quot;Aut consequatur iusto nisi qui qui corrupti enim ea et molestiae rerum.&quot;,
+            &quot;currency&quot;: &quot;et&quot;,
+            &quot;price&quot;: 833759,
+            &quot;brand&quot;: &quot;Managed attitude-oriented approach&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/002200?text=et&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 36,
+            &quot;title&quot;: &quot;Versatile bi-directional project&quot;,
+            &quot;description&quot;: &quot;Et et laboriosam quia et velit optio fugiat dolore.&quot;,
+            &quot;currency&quot;: &quot;quod&quot;,
+            &quot;price&quot;: 6223,
+            &quot;brand&quot;: &quot;Cross-group scalable frame&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00bb22?text=et&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 37,
+            &quot;title&quot;: &quot;Mandatory bandwidth-monitored application&quot;,
+            &quot;description&quot;: &quot;Aperiam qui hic tenetur minima incidunt laboriosam dicta nihil quos.&quot;,
+            &quot;currency&quot;: &quot;dolor&quot;,
+            &quot;price&quot;: 6316,
+            &quot;brand&quot;: &quot;Ameliorated composite frame&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/007700?text=voluptatem&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 38,
+            &quot;title&quot;: &quot;Team-oriented actuating initiative&quot;,
+            &quot;description&quot;: &quot;Molestiae in et recusandae non et occaecati.&quot;,
+            &quot;currency&quot;: &quot;corrupti&quot;,
+            &quot;price&quot;: 81,
+            &quot;brand&quot;: &quot;Balanced holistic toolset&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aacc?text=corporis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 39,
+            &quot;title&quot;: &quot;Seamless homogeneous productivity&quot;,
+            &quot;description&quot;: &quot;Fugiat velit quo amet alias nemo qui optio possimus et a earum.&quot;,
+            &quot;currency&quot;: &quot;saepe&quot;,
+            &quot;price&quot;: 1453,
+            &quot;brand&quot;: &quot;Expanded non-volatile alliance&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/009988?text=maiores&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 40,
+            &quot;title&quot;: &quot;Optimized content-based collaboration&quot;,
+            &quot;description&quot;: &quot;Porro aut voluptate illum ad qui ad beatae quis molestias.&quot;,
+            &quot;currency&quot;: &quot;autem&quot;,
+            &quot;price&quot;: 6,
+            &quot;brand&quot;: &quot;Centralized leadingedge ability&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/009944?text=qui&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 41,
+            &quot;title&quot;: &quot;Synergistic impactful protocol&quot;,
+            &quot;description&quot;: &quot;Velit veritatis consequatur recusandae omnis eos.&quot;,
+            &quot;currency&quot;: &quot;libero&quot;,
+            &quot;price&quot;: 951,
+            &quot;brand&quot;: &quot;Integrated exuding application&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ffff?text=sunt&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 42,
+            &quot;title&quot;: &quot;Digitized 6thgeneration throughput&quot;,
+            &quot;description&quot;: &quot;Vero tenetur cumque sint voluptates hic ipsum molestiae perspiciatis sunt hic.&quot;,
+            &quot;currency&quot;: &quot;dolore&quot;,
+            &quot;price&quot;: 5,
+            &quot;brand&quot;: &quot;Implemented zerotolerance framework&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0000ee?text=repellat&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 43,
+            &quot;title&quot;: &quot;Business-focused composite hardware&quot;,
+            &quot;description&quot;: &quot;Recusandae aperiam ut est inventore nulla sunt.&quot;,
+            &quot;currency&quot;: &quot;et&quot;,
+            &quot;price&quot;: 38,
+            &quot;brand&quot;: &quot;Monitored system-worthy database&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ff99?text=sed&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 44,
+            &quot;title&quot;: &quot;Versatile bi-directional systemengine&quot;,
+            &quot;description&quot;: &quot;Illo tempore at quibusdam doloremque ducimus hic eaque ex corporis.&quot;,
+            &quot;currency&quot;: &quot;sit&quot;,
+            &quot;price&quot;: 25608,
+            &quot;brand&quot;: &quot;Re-engineered maximized analyzer&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0044aa?text=nihil&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 45,
+            &quot;title&quot;: &quot;Adaptive intangible initiative&quot;,
+            &quot;description&quot;: &quot;Ut dolor quis doloremque quo quas quae.&quot;,
+            &quot;currency&quot;: &quot;voluptatem&quot;,
+            &quot;price&quot;: 9,
+            &quot;brand&quot;: &quot;Balanced mobile knowledgebase&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00bb00?text=at&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 46,
+            &quot;title&quot;: &quot;Down-sized discrete openarchitecture&quot;,
+            &quot;description&quot;: &quot;Consequuntur aperiam vel sit sed assumenda nobis voluptatum omnis numquam dolores.&quot;,
+            &quot;currency&quot;: &quot;praesentium&quot;,
+            &quot;price&quot;: 5394446,
+            &quot;brand&quot;: &quot;Organized dynamic frame&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00cc66?text=impedit&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 47,
+            &quot;title&quot;: &quot;Reduced coherent synergy&quot;,
+            &quot;description&quot;: &quot;Cum in exercitationem voluptas nisi sit sunt quos omnis quis ratione.&quot;,
+            &quot;currency&quot;: &quot;ex&quot;,
+            &quot;price&quot;: 210574,
+            &quot;brand&quot;: &quot;Automated high-level encoding&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00cc77?text=asperiores&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 48,
+            &quot;title&quot;: &quot;Multi-layered 6thgeneration securedline&quot;,
+            &quot;description&quot;: &quot;Eaque excepturi dolor distinctio mollitia rerum incidunt tempore ducimus.&quot;,
+            &quot;currency&quot;: &quot;deserunt&quot;,
+            &quot;price&quot;: 126941283,
+            &quot;brand&quot;: &quot;Business-focused web-enabled collaboration&quot;,
+            &quot;category&quot;: &quot;gadget&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0000aa?text=quia&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 49,
+            &quot;title&quot;: &quot;Integrated 4thgeneration capacity&quot;,
+            &quot;description&quot;: &quot;Beatae cum et quisquam quaerat ex atque quas ea unde maxime.&quot;,
+            &quot;currency&quot;: &quot;neque&quot;,
+            &quot;price&quot;: 9,
+            &quot;brand&quot;: &quot;Persistent secondary workforce&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aa11?text=pariatur&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 50,
+            &quot;title&quot;: &quot;Proactive background installation&quot;,
+            &quot;description&quot;: &quot;Doloremque aut dolor dolorum eum sunt dolorem provident velit.&quot;,
+            &quot;currency&quot;: &quot;maiores&quot;,
+            &quot;price&quot;: 831,
+            &quot;brand&quot;: &quot;Open-architected encompassing paradigm&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00cc55?text=distinctio&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 51,
+            &quot;title&quot;: &quot;Advanced regional attitude&quot;,
+            &quot;description&quot;: &quot;Ut porro ut eveniet explicabo soluta.&quot;,
+            &quot;currency&quot;: &quot;qui&quot;,
+            &quot;price&quot;: 595165193,
+            &quot;brand&quot;: &quot;Self-enabling actuating definition&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/001199?text=officiis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 52,
+            &quot;title&quot;: &quot;Compatible zeroadministration service-desk&quot;,
+            &quot;description&quot;: &quot;Quia placeat a ratione et error aut.&quot;,
+            &quot;currency&quot;: &quot;quo&quot;,
+            &quot;price&quot;: 154245653,
+            &quot;brand&quot;: &quot;Customizable nextgeneration initiative&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0044bb?text=sed&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 53,
+            &quot;title&quot;: &quot;Multi-layered context-sensitive project&quot;,
+            &quot;description&quot;: &quot;Libero eaque tempora accusamus animi ipsum qui quas.&quot;,
+            &quot;currency&quot;: &quot;ipsa&quot;,
+            &quot;price&quot;: 1191617,
+            &quot;brand&quot;: &quot;Vision-oriented homogeneous orchestration&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/006633?text=corporis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 54,
+            &quot;title&quot;: &quot;Adaptive eco-centric model&quot;,
+            &quot;description&quot;: &quot;Sit omnis aut assumenda et dolorem voluptatem.&quot;,
+            &quot;currency&quot;: &quot;accusamus&quot;,
+            &quot;price&quot;: 83,
+            &quot;brand&quot;: &quot;Persevering 24hour website&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ee22?text=sit&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 55,
+            &quot;title&quot;: &quot;Stand-alone incremental synergy&quot;,
+            &quot;description&quot;: &quot;Molestiae quasi consequatur tenetur ducimus odit quo animi accusantium molestias voluptatem.&quot;,
+            &quot;currency&quot;: &quot;voluptates&quot;,
+            &quot;price&quot;: 157200044,
+            &quot;brand&quot;: &quot;Centralized uniform pricingstructure&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/007722?text=quo&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 56,
+            &quot;title&quot;: &quot;Digitized secondary budgetarymanagement&quot;,
+            &quot;description&quot;: &quot;Voluptate qui a omnis architecto rem ut modi.&quot;,
+            &quot;currency&quot;: &quot;debitis&quot;,
+            &quot;price&quot;: 33,
+            &quot;brand&quot;: &quot;Expanded leadingedge localareanetwork&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00dd66?text=et&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 57,
+            &quot;title&quot;: &quot;Devolved empowering model&quot;,
+            &quot;description&quot;: &quot;Hic eius ut repudiandae praesentium et et.&quot;,
+            &quot;currency&quot;: &quot;velit&quot;,
+            &quot;price&quot;: 9985661,
+            &quot;brand&quot;: &quot;Reverse-engineered multimedia policy&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aaaa?text=aut&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 58,
+            &quot;title&quot;: &quot;Grass-roots methodical GraphicalUserInterface&quot;,
+            &quot;description&quot;: &quot;Quo dolore enim est et.&quot;,
+            &quot;currency&quot;: &quot;voluptas&quot;,
+            &quot;price&quot;: 7,
+            &quot;brand&quot;: &quot;De-engineered even-keeled core&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/008844?text=repellendus&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 59,
+            &quot;title&quot;: &quot;Persevering mobile challenge&quot;,
+            &quot;description&quot;: &quot;Officiis consequuntur esse fugit in dolor nemo aliquid.&quot;,
+            &quot;currency&quot;: &quot;nihil&quot;,
+            &quot;price&quot;: 96,
+            &quot;brand&quot;: &quot;Secured client-server data-warehouse&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/004488?text=quos&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 60,
+            &quot;title&quot;: &quot;Future-proofed interactive firmware&quot;,
+            &quot;description&quot;: &quot;Id aliquam corrupti eum sed perspiciatis assumenda ut quibusdam tempore debitis.&quot;,
+            &quot;currency&quot;: &quot;neque&quot;,
+            &quot;price&quot;: 427,
+            &quot;brand&quot;: &quot;Synergized human-resource interface&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ffbb?text=deleniti&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T06:34:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 61,
+            &quot;title&quot;: &quot;Nitro 5&quot;,
+            &quot;description&quot;: &quot;the best gaming laptop&quot;,
+            &quot;currency&quot;: &quot;usd&quot;,
+            &quot;price&quot;: 1000,
+            &quot;brand&quot;: &quot;Acer&quot;,
+            &quot;category&quot;: &quot;Laptop&quot;,
+            &quot;image&quot;: &quot;https://d1rlzxa98cyc61.cloudfront.net/catalog/product/cache/1801c418208f9607a371e61f8d9184d9/1/8/182730_2022.jpg&quot;,
+            &quot;created_at&quot;: &quot;2022-10-08T07:16:44.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-08T07:16:44.000000Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products-category-categories" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products-category-categories"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products-category-categories"></code></pre>
+</span>
+<span id="execution-error-GETapi-products-category-categories" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products-category-categories"></code></pre>
+</span>
+<form id="form-GETapi-products-category-categories" data-method="GET"
+      data-path="api/products/category/categories"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products-category-categories', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products-category-categories"
+                    onclick="tryItOut('GETapi-products-category-categories');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products-category-categories"
+                    onclick="cancelTryOut('GETapi-products-category-categories');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products-category-categories" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/category/categories</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-products-category--category_name-">GET api/products/category/{category_name}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products-category--category_name-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/products/category/eligendi" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/products/category/eligendi"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products-category--category_name-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 54
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">[]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products-category--category_name-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products-category--category_name-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products-category--category_name-"></code></pre>
+</span>
+<span id="execution-error-GETapi-products-category--category_name-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products-category--category_name-"></code></pre>
+</span>
+<form id="form-GETapi-products-category--category_name-" data-method="GET"
+      data-path="api/products/category/{category_name}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products-category--category_name-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products-category--category_name-"
+                    onclick="tryItOut('GETapi-products-category--category_name-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products-category--category_name-"
+                    onclick="cancelTryOut('GETapi-products-category--category_name-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products-category--category_name-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/category/{category_name}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>category_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="category_name"
+               data-endpoint="GETapi-products-category--category_name-"
+               value="eligendi"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-user">GET api/user</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-user">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/user" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/user"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-user">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-user" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-user"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-user"></code></pre>
+</span>
+<span id="execution-error-GETapi-user" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-user"></code></pre>
+</span>
+<form id="form-GETapi-user" data-method="GET"
+      data-path="api/user"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-user', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-user"
+                    onclick="tryItOut('GETapi-user');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-user"
+                    onclick="cancelTryOut('GETapi-user');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-user" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/user</code></b>
+        </p>
+                    </form>
+
+            
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>
